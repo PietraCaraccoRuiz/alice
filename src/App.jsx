@@ -1,7 +1,8 @@
 import { useRef } from 'react';
 import moon from './assets/moon.png';
 import land from './assets/land.png';
-import alice from './assets/alice2.gif';
+import toca from './assets/toca.png';
+import alice from './assets/alice3.gif';
 import Cartas from './Cartas';
 
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
@@ -11,15 +12,7 @@ function App() {
 
   return (
     <div className='container'>
-      <Parallax pages={7} ref={ref}>
-        {/* <ParallaxLayer speed={1}>
-            <h2>Welcome to my website</h2>
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={1} speed={0.5}>
-            <h2>Web development is fun!</h2>
-        </ParallaxLayer> */}
-
+      <Parallax pages={30} ref={ref}>
         <ParallaxLayer
           offset={0}
           speed={1}
@@ -41,10 +34,20 @@ function App() {
         ></ParallaxLayer>
 
         <ParallaxLayer
-          sticky={{ start: 0.9, end: 2.5 }}
+          offset={4}
+          speed={1}
+          factor={10}
+          style={{
+            backgroundImage: `url(${toca})`,
+            backgroundSize: 'cover',
+          }}
+        ></ParallaxLayer>
+
+        <ParallaxLayer
+          sticky={{ start: 0.9, end: 7.5 }}
           style={{ textAlign: 'center' }}
         >
-          <img src={alice} />
+          <img src={alice} style={{ width: "1000px" }} />
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -62,9 +65,9 @@ function App() {
         >
           <h2>Hi Mom!</h2>
         </ParallaxLayer>
-        <ParallaxLayer offset={4} speed={1}>
+        {/* <ParallaxLayer offset={4} speed={1}>
           <Cartas />
-        </ParallaxLayer>
+        </ParallaxLayer> */}
       </Parallax>
     </div>
   );
