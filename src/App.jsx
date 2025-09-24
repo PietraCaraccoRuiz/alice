@@ -1,8 +1,12 @@
 import { useRef } from 'react';
 import moon from './assets/moon.png';
 import land from './assets/land.png';
-import toca from './assets/toca.png';
+import toca from './assets/fundo.png';
+
 import alice from './assets/alice3.gif';
+import espelho from './assets/espelho.png';
+
+
 import Cartas from './Cartas';
 
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
@@ -12,7 +16,7 @@ function App() {
 
   return (
     <div className='container'>
-      <Parallax pages={30} ref={ref}>
+      <Parallax pages={25} ref={ref}>
         <ParallaxLayer
           offset={0}
           speed={1}
@@ -36,7 +40,7 @@ function App() {
         <ParallaxLayer
           offset={4}
           speed={1}
-          factor={10}
+          factor={10.5}
           style={{
             backgroundImage: `url(${toca})`,
             backgroundSize: 'cover',
@@ -44,16 +48,21 @@ function App() {
         ></ParallaxLayer>
 
         <ParallaxLayer
-          sticky={{ start: 0.9, end: 7.5 }}
+          sticky={{ start: 0.9, end: 10.5 }}
           style={{ textAlign: 'center' }}
         >
           <img src={alice} style={{ width: "1000px" }} />
+        </ParallaxLayer>
+        <ParallaxLayer
+          sticky={{ start: 5.5, end: 6}}
+          style={{ right: '-20px' }}
+        >
+          <img src={espelho} style={{ width: "600px" }} />
         </ParallaxLayer>
 
         <ParallaxLayer
           offset={0.2}
           speed={0.05}
-          onClick={() => ref.current.scrollTo(3)}
         >
           <h2>Welcome to my website</h2>
         </ParallaxLayer>
@@ -61,7 +70,6 @@ function App() {
         <ParallaxLayer
           offset={3}
           speed={2}
-          onClick={() => ref.current.scrollTo(0)}
         >
           <h2>Hi Mom!</h2>
         </ParallaxLayer>
